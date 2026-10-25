@@ -35,3 +35,9 @@ Route::put('/students/{id}', function ($id) {
 Route::delete('/students/{id}', function ($id) {
     return 'Student Deleted: ' . $id;
 });
+
+// ===== Exercise 4: Route Constraints =====
+
+Route::get('/products/{id}', function ($id) {
+    return 'Product ID: ' . $id;
+})->whereNumber('id');
