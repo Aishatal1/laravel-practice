@@ -13,6 +13,7 @@ class Student extends Model
         'student_number',
         'name',
         'email',
+        'major',
     ];
 }
 ?>

@@ -18,7 +18,6 @@
 
     <h1>Add New Student</h1>
 
-    {{-- Global Error Messages --}}
     @if ($errors->any())
         <div style="background-color: #f8d7da; color: #721c24; padding: 10px; border: 1px solid #f5c6cb; margin-bottom: 20px; border-radius: 4px;">
             <ul>
@@ -52,6 +51,15 @@
             <label>Email:</label>
             <input type="email" name="email" value="{{ old('email') }}">
             @error('email')
+                <div class="error">{{ $message }}</div>
+            @enderror
+        </div>
+
+        {{-- Major Added --}}
+        <div class="form-group">
+            <label>Major:</label>
+            <input type="text" name="major" value="{{ old('major') }}">
+            @error('major')
                 <div class="error">{{ $message }}</div>
             @enderror
         </div>

@@ -31,6 +31,7 @@ class StudentController extends Controller
             'student_number' => 'required|unique:students,student_number',
             'name'           => 'required',
             'email'          => 'required|email',
+            'major'          => 'required',
         ]);
 
         // Create the student using only the validated data
@@ -57,6 +58,7 @@ class StudentController extends Controller
             'student_number' => 'required|unique:students,student_number,' . $student->id,
             'name'           => 'required',
             'email'          => 'required|email',
+            'major'          => 'required',
         ]);
 
         // Update the student

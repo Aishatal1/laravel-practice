@@ -32,25 +32,25 @@
     <table>
         <thead>
             <tr>
-                <th>ID</th>
+                {{-- ID Removed --}}
                 <th>Student Number</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Major</th> {{-- Major Added --}}
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            {{-- Loop through students. If empty, show a message --}}
             @forelse ($students as $student)
                 <tr>
-                    <td>{{ $student->id }}</td>
+                    {{-- ID Removed --}}
                     <td>{{ $student->student_number }}</td>
                     <td>{{ $student->name }}</td>
                     <td>{{ $student->email }}</td>
+                    <td>{{ $student->major }}</td> {{-- Major Added --}}
                     <td>
                         <a href="{{ route('students.edit', $student->id) }}" class="btn btn-edit">Edit</a>
 
-                        {{-- Delete Form (Must be a form because it uses DELETE method) --}}
                         <form action="{{ route('students.destroy', $student->id) }}" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this student?');">
                             @csrf
                             @method('DELETE')

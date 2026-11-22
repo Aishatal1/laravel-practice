@@ -28,14 +28,12 @@
         </div>
     @endif
 
-    {{-- Form Action goes to update, using the PUT method --}}
     <form action="{{ route('students.update', $student->id) }}" method="POST">
         @csrf
-        @method('PUT') {{-- This tells Laravel to treat this as a PUT request --}}
+        @method('PUT')
 
         <div class="form-group">
             <label>Student Number:</label>
-            {{-- Use old() first, but if it's empty, fallback to the student's current number --}}
             <input type="text" name="student_number" value="{{ old('student_number', $student->student_number) }}">
             @error('student_number')
                 <div class="error">{{ $message }}</div>
@@ -54,6 +52,15 @@
             <label>Email:</label>
             <input type="email" name="email" value="{{ old('email', $student->email) }}">
             @error('email')
+                <div class="error">{{ $message }}</div>
+            @enderror
+        </div>
+
+        {{-- Major Added --}}
+        <div class="form-group">
+            <label>Major:</label>
+            <input type="text" name="major" value="{{ old('major', $student->major) }}">
+            @error('major')
                 <div class="error">{{ $message }}</div>
             @enderror
         </div>
